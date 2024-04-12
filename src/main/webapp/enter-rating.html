@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Enter Id</title>
+</head>
+<body>
+	<div align="center">
+		<form action="fetch-movies-rating" method="post">
+			Enter Rating : <input type="text" name="rating"><br><br>
+			<button>Search</button>
+		</form>
+	</div>
+</body>
+</html>

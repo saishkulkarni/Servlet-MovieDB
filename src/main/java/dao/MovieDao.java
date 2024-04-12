@@ -23,4 +23,12 @@ public class MovieDao {
 	public List<Movie> fetchMovies() {
 		return manager.createQuery("select x from Movie x").getResultList();
 	}
+
+	public List<Movie> fetchMoviesById(int id) {
+		return manager.createQuery("select x from Movie x where id=?1").setParameter(1,id).getResultList();
+	}
+
+	public List<Movie> fetchMoviesByRating(double rating) {
+		return manager.createQuery("select x from Movie x where rating >= ?1").setParameter(1,rating).getResultList();
+	}
 }
