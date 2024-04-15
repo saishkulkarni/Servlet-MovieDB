@@ -43,4 +43,10 @@ public class MovieDao {
 	public List<Movie> fetchMoviesByName(String name) {
 		return manager.createQuery("select x from Movie x where name=?1").setParameter(1,name).getResultList();
 	}
+
+	public void deleteMovie(int id) {
+		transaction.begin();
+		manager.remove(manager.find(Movie.class, id));
+		transaction.commit();
+	}
 }
