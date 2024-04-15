@@ -12,20 +12,20 @@ import javax.servlet.http.HttpServletResponse;
 import dao.MovieDao;
 import dto.Movie;
 
-@WebServlet("/fetch-movies-id")
-public class FetchMoviesById extends HttpServlet {
+@WebServlet("/fetch-movies-name")
+public class FetchMoviesByName extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getRequestDispatcher("enter-id.html").forward(req, resp);
+		req.getRequestDispatcher("enter-name.html").forward(req, resp);
 	}
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		int id=Integer.parseInt(req.getParameter("id"));
+		String name=req.getParameter("name");
 		
 		MovieDao dao = new MovieDao();
-		List<Movie> list = dao.fetchMoviesById(id);
+		List<Movie> list = dao.fetchMoviesByName(name);
 		if (list.isEmpty()) {
-			resp.getWriter().print("<h1 style='color:red' align='center'>No Movie Found with Id "+id+"</h1>");
+			resp.getWriter().print("<h1 style='color:red' align='center'>No Movie Found with Name "+name+"</h1>");
 			req.getRequestDispatcher("home.html").include(req, resp);
 		} else {
 			req.setAttribute("list", list);

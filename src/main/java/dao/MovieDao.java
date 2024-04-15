@@ -31,4 +31,16 @@ public class MovieDao {
 	public List<Movie> fetchMoviesByRating(double rating) {
 		return manager.createQuery("select x from Movie x where rating >= ?1").setParameter(1,rating).getResultList();
 	}
+
+	public List<Movie> fetchMoviesByGenre(String genre) {
+		return manager.createQuery("select x from Movie x where genre=?1").setParameter(1,genre).getResultList();
+	}
+
+	public List<Movie> fetchMoviesByLanguage(String language) {
+		return manager.createQuery("select x from Movie x where language=?1").setParameter(1,language).getResultList();
+	}
+
+	public List<Movie> fetchMoviesByName(String name) {
+		return manager.createQuery("select x from Movie x where name=?1").setParameter(1,name).getResultList();
+	}
 }

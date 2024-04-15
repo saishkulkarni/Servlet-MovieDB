@@ -1,3 +1,4 @@
+<%@page import="org.apache.commons.codec.binary.Base64"%>
 <%@page import="dto.Movie"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -28,7 +29,7 @@
 		<%for(Movie movie:list){ %>
 		<tr>
 			<th><%=movie.getName() %></th>
-			<th><img height="75px" width="75px" alt="<%=movie.getName() %>" src=""></th>
+			<th><img height="75px" width="75px" alt="<%=movie.getName() %>" src="data:image/jpeg;base64,<%=Base64.encodeBase64String(movie.getPicture())%>"></th>
 			<th><%=movie.getLanguage() %></th>
 			<th><%=movie.getGenre() %></th>
 			<th><%=movie.getRating() %></th>

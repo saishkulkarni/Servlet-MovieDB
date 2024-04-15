@@ -26,7 +26,7 @@ public class FetchMovieByRating extends HttpServlet {
 		MovieDao dao = new MovieDao();
 		List<Movie> list = dao.fetchMoviesByRating(rating);
 		if (list.isEmpty()) {
-			resp.getWriter().print("<h1 style='color:red' align='center'>No Movies Found</h1>");
+			resp.getWriter().print("<h1 style='color:red' align='center'>No Movies Found with Rating Greater than "+rating+"</h1>");
 			req.getRequestDispatcher("home.html").include(req, resp);
 		} else {
 			req.setAttribute("list", list);
