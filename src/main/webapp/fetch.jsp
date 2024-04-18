@@ -33,7 +33,7 @@
 			<th><%=movie.getLanguage() %></th>
 			<th><%=movie.getGenre() %></th>
 			<th><%=movie.getRating() %></th>
-			<th><button>Edit</button></th>
+			<th><a href="edit-movie?id=<%=movie.getId() %>"><button>Edit</button></a></th>
 			<th><a href="delete-movie?id=<%=movie.getId() %>"><button>Delete</button></a></th>
 		</tr>
 		<%} %>
