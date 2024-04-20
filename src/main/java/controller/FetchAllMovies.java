@@ -26,4 +26,5 @@ public class FetchAllMovies extends HttpServlet {
 			req.getRequestDispatcher("fetch.jsp").forward(req, resp);
 		}
 	}
+
 }
